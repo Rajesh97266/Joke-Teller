@@ -214,19 +214,25 @@ const VoiceRSS = {
 // };
 
 // function test() {
-//   VoiceRSS.speech({
-//     key: "0924a77d3cbd4ab0a475cc0e55fd30e1",
-//     src: "Hello, world!",
-//     hl: "en-us",
-//     v: "Linda",
-//     r: 0,
-//     c: "mp3",
-//     f: "44khz_16bit_stereo",
-//     ssml: false,
-//   });
+
 // }
 
 // test();
+
+//PassingJoke
+function tellMe(joke) {
+  console.log("tell me:", joke);
+  VoiceRSS.speech({
+    key: "0924a77d3cbd4ab0a475cc0e55fd30e1",
+    src: joke,
+    hl: "en-us",
+    v: "Linda",
+    r: 0,
+    c: "mp3",
+    f: "44khz_16bit_stereo",
+    ssml: false,
+  });
+}
 
 //Get Jokes from Joke API
 
@@ -242,7 +248,8 @@ async function getJokes() {
     } else {
       joke = data.joke;
     }
-    console.log(joke);
+
+    tellMe(joke);
   } catch (error) {
     console.log("whoops", error);
   }
